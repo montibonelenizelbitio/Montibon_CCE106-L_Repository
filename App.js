@@ -1,20 +1,52 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+App.js
+
+import { StyleSheet, Text, View, SafeAreaView, ScrollView } from 'react-native';
+import StatCard from './components/StatCard';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.safeArea}>
+      <ScrollView contentContainerStyle={styles.container}>
+        <Text style={styles.header}>⚡ Executive Insights</Text>
+        
+        <StatCard 
+          title="Total Users" 
+          value="1,240" 
+          bgColor="#3b82f6" //Blue
+          emoji="👥"
+        />
+        
+        <StatCard 
+          title="Revenue" 
+          value="$12,450" 
+          bgColor="#10b981" //Green
+          emoji="💰"
+        />
+        
+        <StatCard 
+          title="Pending Issues" 
+          value="3" 
+          bgColor="#ef4444" //Red
+          emoji="⚠️"
+        />
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  safeArea: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#0f172a', //dark background
+  },
+  container: {
+    padding: 24,
+  },
+  header: {
+    fontSize: 26,
+    fontWeight: '800',
+    marginBottom: 16,
+    color: '#f8fafc',
+    textAlign: 'left',
   },
 });
